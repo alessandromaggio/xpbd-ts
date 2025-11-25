@@ -1,7 +1,8 @@
-// XPBD Physics Engine Entry Point
+import { Pos } from "./pos";
+import { Canvas } from "./canvas";
+import { Circle } from "./circle";
 
-export class Demo {
-    constructor() {
-        console.log('XPBD Demo initialized');
-    }
-}
+export { Pos };
+export { Canvas };
+export { Circle };
+export * from "./i-particle";

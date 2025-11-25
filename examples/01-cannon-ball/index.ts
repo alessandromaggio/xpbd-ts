@@ -1,28 +1,21 @@
 // Cannon Ball XPBD Example
-import { Demo } from '../../src/index';
+import { Canvas, Circle, Pos } from '../../src/index';
 
-const canvas = document.getElementById('canvas') as HTMLCanvasElement;
-const ctx = canvas.getContext('2d')!;
+const canvas = new Canvas(
+    document.getElementById('canvas') as HTMLCanvasElement,
+    window,
+    20
+);
 
-// Test XPBD import
-const demo = new Demo();
+canvas.init();
 
-function resizeCanvas(): void {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+const circle = new Circle(new Pos(0.2, 0.2), 0.2, '#ff0000');
+
+function draw() {
+    const context = canvas.context;
+    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+
+    circle.draw(canvas.context, canvas.scale);
 }
 
-function render(): void {
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    // Example placeholder - draw a simple box
-    ctx.fillStyle = '#fff';
-    ctx.fillRect(canvas.width / 2 - 25, canvas.height / 2 - 25, 50, 50);
-    
-    requestAnimationFrame(render);
-}
-
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-render();
+draw();
