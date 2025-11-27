@@ -1,14 +1,17 @@
 import { IParticle } from './i-particle';
-import { Pos } from './pos';
+import { DrawingKit } from './drawing-kit';
+import { Vec2 } from './vec2';
 
 export class Circle implements IParticle {
     constructor(
-        public pos: Pos,
+        public pos: Vec2,
+        public vel: Vec2,
         public radius: number,
         public fillColorHex: string
     ) {}
 
-    public draw(c: CanvasRenderingContext2D, scale: number): void {
+    public draw(kit: DrawingKit): void {
+        const { c, scale } = kit;
         c.beginPath();
         c.fillStyle = this.fillColorHex;
         c.arc(

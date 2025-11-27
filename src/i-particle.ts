@@ -1,3 +1,5 @@
+import { DrawingKit } from "./drawing-kit";
+
 export interface IParticle {
-    draw(c: CanvasRenderingContext2D, scale: number): void;
+    draw(kit: DrawingKit): void;
 }
