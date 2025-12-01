@@ -1,13 +1,23 @@
-import { Vec2 } from "./vec2";
+
 import { Canvas } from "./canvas";
-import { Circle } from "./circle";
 import { App, Hook } from "./app";
+
+import { ECS, Entity } from "./ecs/ecs";
+import { system } from "./ecs/system";
+
+import { Pos } from "./components/pos";
+import { Vel } from "./components/vel";
+import { CircleData } from "./components/circle-data";
+import { Vec2 } from "./components/vec2";
+
+export { ECS, system };
+export type { Entity };
 
 export { App };
 export { Hook };
 
-export { Vec2 };
+
 export { Canvas };
-export { Circle };
-export * from "./i-particle";
-export * from "./drawing-kit";
+
+export { Vec2 };
+export { Pos, Vel, CircleData };
