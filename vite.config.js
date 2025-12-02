@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite';
 import { readdirSync, statSync } from 'fs';
-import { resolve } from 'path';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Auto-discover HTML files in example subfolders
 const exampleDirs = readdirSync('examples')

@@ -1,6 +1,5 @@
 // Cannon Ball XPBD Example
-import { Canvas, Vec2, App, Hook, ECS, system } from '../../src/index';
-import { Pos, Vel, CircleData } from '../../src/index';
+import { Canvas, Vec2, App, Hook, ECS, system, Pos, Vel, CircleData } from '../../src/ecs/index';
 
 class Gravity {
   constructor(public vec: Vec2) {}

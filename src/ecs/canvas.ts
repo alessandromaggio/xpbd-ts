@@ -1,4 +1,4 @@
-import { Pos } from './components/vec2';
+import { Pos } from '../components/vec2';
 
 export class Canvas {
     private _scale: number = 1;
