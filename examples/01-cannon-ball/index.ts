@@ -1,5 +1,5 @@
 // Cannon Ball XPBD Example
-import { Canvas, Vec2, App, Hook, ECS, system, Pos, Vel, CircleData } from '../../src/ecs/index';
+import { Canvas, Vec2, App, Hook, ECS, System, Pos, Vel, CircleData } from '../../src/ecs/index';
 
 class Gravity {
   constructor(public vec: Vec2) {}
@@ -26,7 +26,7 @@ const startup = (ecs: ECS) => {
   ecs.addResource(Gravity, new Gravity(new Vec2(0, -9.81)));
 };
 
-const simulate = system(Pos, Vel, CircleData)((ecs, _, pos, vel, circle) => {
+const simulate = System.each(Pos, Vel, CircleData)((ecs, _, pos, vel, circle) => {
     const gravity = ecs.getResource(Gravity);
     const canvas = ecs.getResource(Canvas);
 
@@ -55,7 +55,7 @@ const clearCanvas = (ecs: ECS) => {
   context.clearRect(0, 0, context.canvas.width, context.canvas.height);
 }
 
-const drawCircles = system(Pos, CircleData)((ecs, _, pos, circle) => {
+const drawCircles = System.each(Pos, CircleData)((ecs, _, pos, circle) => {
   const canvas = ecs.getResource(Canvas);
   const c = canvas.context;
 
